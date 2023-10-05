@@ -18,14 +18,19 @@ function TodoList() {
   // newTaskが空ならアラート、文字が入力されていればtasksの配列に
   // newTaskを追加しnewTaskを空にする
 
+  const deleteTask = (index) => {
+    const updateTask = [...tasks];
+    updateTask.splice(index, 1);
+    setTasks(updateTask);
+  }
+
   const taskList = tasks.map((task, index) => (
     <li key={index}>
       {task}
+      <button onClick={() => deleteTask(index)}>削除</button>
     </li>
   ));
   // map関数で配列内の各要素に対して指定した関数を適用し、新しい配列を生成する
-  // まだ理解できてない
-
 
   return (
     <div>
